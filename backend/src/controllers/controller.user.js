@@ -17,8 +17,7 @@ const userController = {
         const response = await services.changePassword(req, res);
         return res.status(HttpStatus.OK).json(response);
     },
-
-
+    
     async logout(req, res) {
         const response = await services.userServices.userLogout(req, res);
         return res.status(HttpStatus.OK).json(response);
@@ -30,7 +29,7 @@ const userController = {
     },
     
     async forgetPasswordset(req, res) {
-        const response = await services.userServices.forgetPasswordset(req, res);
+        const response = await services.forgetPasswordset(req, res);
         return res.status(HttpStatus.OK).json(response);
     },
 

@@ -9,6 +9,7 @@ const { userVerification } = require('../utils/utils.userverification');
 const { where } = require('sequelize');
 const { Op } = require('sequelize');
 const validator = require('validator');
+const moment = require('moment-timezone');
 
 const userServices = {
 
@@ -129,7 +130,7 @@ const userServices = {
             return { msg: "Something went wrong", result: "fail" };
         }
     },
-    
+
 
     async forgetPasswordotp(req, res) {
         const { email } = req.body;
@@ -149,14 +150,14 @@ const userServices = {
     },
 
     async forgetPasswordset(req, res) {
-        const { email, npass, cotp } = req.body;
+        const { email, password, otp } = req.body;
 
         const t = await sequelize.transaction();
         try {
             const user = await model.User.findOne({
                 where: {
                     email: email,
-                    generatedEmailOtp: cotp
+                    forgetPasswordotp: otp
                 },
                 transaction: t
             });
@@ -166,7 +167,24 @@ const userServices = {
                 return { msg: 'Invalid OTP', result: "fail" };
             }
 
-            const hashedNewPassword = await hashedValue.generatehashPass(npass);
+            const currentTime = moment().tz('Asia/Kolkata');
+
+            const expiresIn = moment(user.expiresIn).tz('Asia/Kolkata');
+
+            if (currentTime.isAfter(expiresIn)) {
+                await t.rollback();
+                return { msg: 'Your OTP has expired', result: "fail" };
+            }
+
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                return {
+                    msg: "Invalid Password Format. It must contain at least 1 uppercase, 1 lowercase, 1 number, 1 special character and be minimum 8 characters long.",
+                    result: "fail"
+                };
+            }
+
+            const hashedNewPassword = await hashedValue.generatehashPass(password);
 
             await user.update({
                 password: hashedNewPassword
@@ -180,6 +198,7 @@ const userServices = {
             return { msg: "Something went wrong", result: "fail" };
         }
     },
+
 
     async userLogout(req, res) {
         const { userToken } = req.body
