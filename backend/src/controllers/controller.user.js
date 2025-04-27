@@ -1,25 +1,20 @@
-const services = require('../services/index');
+const services = require('../services/services.user');
 const { Resendotp, changePassword, forgetPasswordotp, forgetPasswordset, changePasswordFirstLogging } = require('../services/services.user');
 const { HttpStatus } = require('../utils/utils.httpStatus')
 
 const userController = {
     async addUser(req, res) {
-        const response = await services.userServices.addUser(req, res);
+        const response = await services.addUser(req, res);
         return res.status(HttpStatus.CREATED).json(response);
     },
 
-    async fetchUser(req, res) {
-        const response = await services.userServices.getUser(req, res);
-        return res.status(HttpStatus.OK).json(response);
-    },
-
     async UserLogging(req, res) {
-        const response = await services.userServices.userLogging(req, res);
+        const response = await services.userLogging(req, res);
         return res.status(HttpStatus.OK).json(response);
     },
 
     async changePassword(req, res) {
-        const response = await services.userServices.changePassword(req, res);
+        const response = await services.changePassword(req, res);
         return res.status(HttpStatus.OK).json(response);
     },
 

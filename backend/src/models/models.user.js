@@ -24,8 +24,16 @@ const User = sequelize.define('user', {
     
     forgetPasswordotp: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
+    otptime : {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
+    expiresIn:{
+        type: DataTypes.STRING,
+        allowNull : true
+    }
 }, {
     timestamps: true,
 });

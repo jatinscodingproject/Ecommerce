@@ -5,8 +5,6 @@ const userController = require('../controllers/controller.user')
 
 router.post('/addUser',  userController.userController.addUser)
 
-router.post('/fetchUser' ,  userController.userController.fetchUser)
-
 router.post('/login' , userController.userController.UserLogging)
 
 router.post('/changePassword' , userController.userController.changePassword)
