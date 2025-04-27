@@ -149,6 +149,7 @@ const userServices = {
         }
     },
 
+
     async forgetPasswordset(req, res) {
         const { email, password, otp } = req.body;
 
@@ -215,6 +216,8 @@ const userServices = {
             return { msg: "Something Went Wrong", result: "fail" };
         }
     },
+
+    
 }
 
 

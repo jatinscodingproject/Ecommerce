@@ -1,27 +1,11 @@
 const User = require('./models.user');
-// const UserType = require('../model/model.userType');
-// const Page = require('../model/model.page');
-// const PageAccess = require('../model/model.pageaccess');
-// const FolderPermission = require('../model/model.folderPermission');
-// const Folder = require('../model/model.folder');
-// const subFolder = require('../model/model.subflder')
-// const ftpuser = require('../model/model.ftpuser')
-// const token = require('../model/model.token')
-
-// subFolder.hasMany(FolderPermission, { foreignKey: 'subfolderId' });
-// FolderPermission.belongsTo(subFolder, { foreignKey: 'subfolderId' });
-
-// subFolder.hasOne(ftpuser, { foreignKey: 'subfolderId' });
-// ftpuser.belongsTo(subFolder, { foreignKey: 'subfolderId' });
+const Product = require('./model.product');
+const ProductImage = require('./model.productImages');
+const Customer = require('./model.customer')
 
 module.exports = {
     User,
-    // UserType,
-    // Page,
-    // PageAccess,
-    // FolderPermission,
-    // Folder,
-    // subFolder,
-    // ftpuser,
-    // token
+    Product,
+    ProductImage,
+    Customer
 };
