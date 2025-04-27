@@ -27,11 +27,11 @@ const User = sequelize.define('user', {
         allowNull: true,
     },
     otptime : {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DATE,
         allowNull: true
     },
     expiresIn:{
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull : true
     }
 }, {

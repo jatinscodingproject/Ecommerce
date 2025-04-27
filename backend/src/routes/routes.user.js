@@ -9,8 +9,6 @@ router.post('/login' , userController.userController.UserLogging)
 
 router.post('/changePassword' , userController.userController.changePassword)
 
-router.post(`/editUser/:userID` , userController.userController.editUser)
-
 router.post(`/logout`, userController.userController.logout);
 
 router.post(`/fpo`, userController.userController.forgetPasswordotp)

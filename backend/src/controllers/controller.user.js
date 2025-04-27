@@ -18,10 +18,6 @@ const userController = {
         return res.status(HttpStatus.OK).json(response);
     },
 
-    async editUser(req, res) {
-        const response = await services.userServices.editUser(req, res);
-        return res.status(HttpStatus.OK).json(response);
-    },
 
     async logout(req, res) {
         const response = await services.userServices.userLogout(req, res);
@@ -29,7 +25,7 @@ const userController = {
     },
 
     async forgetPasswordotp(req, res) {
-        const response = await services.userServices.forgetPasswordotp(req, res);
+        const response = await services.forgetPasswordotp(req, res);
         return res.status(HttpStatus.OK).json(response);
     },
     
