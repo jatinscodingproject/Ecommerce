@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router()
 const customerController = require('../controllers/controller.customer')
 
-router.post('/addProduct',  productController.productController.addProduct)
+router.post('/addProduct',  customerController.customerController.importFromCSV)
 
-router.post('/fetchProduct',  productController.productController.getProduct)
+router.get('/fetchProduct', customerController.customerController.getCustomers)
 
 
 
