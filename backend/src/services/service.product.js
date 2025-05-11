@@ -7,6 +7,7 @@ const validator = require('validator');
 
 const productServices = {
 
+
     async addProduct(req, res) {
         const t = await sequelize.transaction();
         try {
@@ -49,11 +50,11 @@ const productServices = {
             } = req.body;
 
             if (!title || !category_id || !price) {
-                return { msg: "Required fields missing", result: "fail" };
+                return res.status(400).json({ msg: "Required fields missing", result: "fail" });
             }
 
             if (!validator.isDecimal(price.toString())) {
-                return { msg: "Invalid price format", result: "fail" };
+                return res.status(400).json({ msg: "Invalid price format", result: "fail" });
             }
 
             const newProduct = await model.Product.create({
@@ -95,15 +96,39 @@ const productServices = {
                 deleted: false
             }, { transaction: t });
 
+            if (req.files && req.files.length > 0) {
+                const dir = path.join(__dirname, '..', 'images', title.replace(/\s+/g, '_'));
+                if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
+                const imagePromises = req.files.map(file => {
+                    const tempPath = file.path;
+                    const ext = path.extname(file.originalname);
+                    const finalName = Date.now() + '_' + Math.round(Math.random() * 1e9) + ext;
+                    const finalPath = path.join(dir, finalName);
+
+                    fs.renameSync(tempPath, finalPath);
+
+                    const relativePath = path.relative(path.join(__dirname, '..'), finalPath).replace(/\\/g, '/');
+
+                    return model.ProductImage.create({
+                        product_id: newProduct.id,
+                        image_url: relativePath,
+                    }, { transaction: t });
+                });
+
+                await Promise.all(imagePromises);
+            }
+
             await t.commit();
-            return { msg: 'Product Added!', result: 'pass', data: newProduct };
+            return res.status(201).json({ msg: 'Product Added!', result: 'pass', data: newProduct });
 
         } catch (err) {
             if (t) await t.rollback();
             console.error('Error adding product:', err);
-            return { msg: 'Something went wrong', result: 'fail' };
+            return res.status(500).json({ msg: 'Something went wrong', result: 'fail' });
         }
     },
+
 
     async getProducts(req, res) {
         try {

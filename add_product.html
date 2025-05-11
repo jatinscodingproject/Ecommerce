@@ -37,7 +37,7 @@
         <aside :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
             class="sidebar fixed top-0 left-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-auto border-r border-gray-200 bg-white px-5 transition-all duration-300 lg:static lg:translate-x-0 dark:border-gray-800 dark:bg-black"
             @click.outside="sidebarToggle = false">
-            <!-- SIDEBAR HEADER -->
+            
             <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
                 class="sidebar-header flex items-center gap-2 pt-8 pb-7">
                 <a href="index.html">
@@ -50,12 +50,11 @@
                         src="src/images/logo/logo-icon.svg" alt="Logo" />
                 </a>
             </div>
-            <!-- SIDEBAR HEADER -->
 
             <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-                <!-- Sidebar Menu -->
+               
                 <nav x-data="{selected: $persist('Dashboard')}">
-                    <!-- Menu Group -->
+                   
                     <div>
                         <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                             <span class="menu-group-title" :class="sidebarToggle ? 'lg:hidden' : ''">
@@ -150,7 +149,6 @@
                                     </svg>
                                 </a>
 
-                                <!-- Dropdown Menu Start -->
                                 <div class="translate transform overflow-hidden"
                                     :class="(selected === 'Task') ? 'block' :'hidden'">
                                     <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
@@ -171,7 +169,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Dropdown Menu End -->
                             </li>
 
                             <li>
@@ -216,7 +213,7 @@
                 <div class="flex grow flex-col items-center justify-between lg:flex-row lg:px-6">
                     <div
                         class="flex w-full items-center justify-between gap-2 border-b border-gray-200 px-3 py-3 dark:border-gray-800 sm:gap-4 lg:justify-normal lg:border-b-0 lg:px-0 lg:py-4">
-                        <!-- Hamburger Toggle BTN -->
+                        
                         <button
                             :class="sidebarToggle ? 'lg:bg-transparent dark:lg:bg-transparent bg-gray-100 dark:bg-gray-800' : ''"
                             class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg border-gray-200 text-gray-500 dark:border-gray-800 dark:text-gray-400 lg:h-11 lg:w-11 lg:border"
@@ -236,7 +233,6 @@
                                     fill="" />
                             </svg>
 
-                            <!-- cross icon -->
                             <svg :class="sidebarToggle ? 'block lg:hidden' : 'hidden'" class="fill-current" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -380,9 +376,7 @@
                                     Sign out
                                 </button>
                             </div>
-                            <!-- Dropdown End -->
                         </div>
-                        <!-- User Area -->
                     </div>
                 </div>
             </header>
@@ -421,7 +415,7 @@
                                 class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
 
                                 <div class="p-5 space-y-6 border-t border-gray-100 dark:border-gray-800 sm:p-6">
-                                    <form method="POST" method="POST" action="http://localhost:3000/api/addProduct" enctype="application/x-www-form-urlencoded">
+                                    <form method="POST" action="http://localhost:3000/api/addProduct" enctype="application/x-www-form-urlencoded">
                                         <div class="-mx-2.5 flex flex-wrap gap-y-5">
 
 
