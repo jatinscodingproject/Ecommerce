@@ -17,44 +17,43 @@ const productServices = {
                 category_id,
                 sub_category_id,
                 brand,
-                manufacturer,
+                manufacture,
                 description,
-                usage_instructions,
+                usage_instruction,
                 price,
                 discount,
-                gst_percentage,
+                gst_percent,
                 quantity,
-                min_order_quantity,
+                minimum_order_qty,
                 weight,
                 dimension,
                 material_used,
                 age_recommendations,
-                safety_instructions,
+                safety_instruction,
                 tags,
                 color,
                 size,
                 variant,
                 battery_type,
-                number_of_batteries,
-                batteries_included,
+                battery_required,
+                battery_include,
                 remote_range,
                 remote_battery_info,
                 frequency,
-                choking_hazard_warning,
-                manufactured_by,
-                manufactured_in,
+                choking_hazard,
+                manfactured_in, 
                 video_url,
                 user_id,
                 status,
                 stock_status
             } = req.body;
 
-            if (!title || !category_id || !price) {
-                return res.status(400).json({ msg: "Required fields missing", result: "fail" });
+            if (!title  || !price) {
+                return { msg: "Required fields missing", result: "fail" };
             }
 
             if (!validator.isDecimal(price.toString())) {
-                return res.status(400).json({ msg: "Invalid price format", result: "fail" });
+                return { msg: "Invalid price format", result: "fail" };
             }
 
             const newProduct = await model.Product.create({
@@ -63,38 +62,39 @@ const productServices = {
                 category_id,
                 sub_category_id,
                 brand,
-                manufacturer,
+                manufacturer: manufacture,
                 description,
-                usage_instructions,
+                usage_instructions: usage_instruction,
                 price,
                 discount,
-                gst_percentage,
+                gst_percentage: gst_percent,
                 quantity,
-                min_order_quantity,
+                min_order_quantity: minimum_order_qty,
                 weight,
                 dimension,
                 material_used,
                 age_recommendations,
-                safety_instructions,
+                safety_instructions: safety_instruction,
                 tags,
                 color,
                 size,
                 variant,
                 battery_type,
-                number_of_batteries,
-                batteries_included,
+                number_of_batteries: battery_required,
+                batteries_included: battery_include,
                 remote_range,
                 remote_battery_info,
                 frequency,
-                choking_hazard_warning,
-                manufactured_by,
-                manufactured_in,
+                choking_hazard_warning: choking_hazard,
+                manufactured_by: manufacture,
+                manufactured_in: manfactured_in,
                 video_url,
                 user_id,
                 status,
                 stock_status,
                 deleted: false
             }, { transaction: t });
+            
 
             if (req.files && req.files.length > 0) {
                 const dir = path.join(__dirname, '..', 'images', title.replace(/\s+/g, '_'));
@@ -120,12 +120,12 @@ const productServices = {
             }
 
             await t.commit();
-            return res.status(201).json({ msg: 'Product Added!', result: 'pass', data: newProduct });
+            return { msg: 'Product Added!', result: 'pass', data: newProduct };
 
         } catch (err) {
             if (t) await t.rollback();
             console.error('Error adding product:', err);
-            return res.status(500).json({ msg: 'Something went wrong', result: 'fail' });
+            return { msg: 'Something went wrong', result: 'fail' };
         }
     },
 

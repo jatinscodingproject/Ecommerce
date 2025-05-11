@@ -1,23 +1,32 @@
 const multer = require('multer');
-const fs = require('fs');
 const path = require('path');
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const title = req.body.title;
-    const dir = path.join(__dirname, '..', 'images', title.replace(/\s+/g, '_'));
-
-    fs.mkdirSync(dir, { recursive: true });
-
-    cb(null, dir);
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const ext = path.extname(file.originalname);
-    cb(null, uniqueSuffix + ext);
-  }
+    destination: function (req, file, cb) {
+        const productFolder = `uploads/${req.body.title}`;
+        cb(null, productFolder);
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
 });
 
-const upload = multer({ storage });
+const upload = multer({
+    storage,
+    limits: {
+        fileSize: 50 * 1024 * 1024
+    },
+    fileFilter: (req, file, cb) => {
+        const filetypes = /jpg|jpeg|png|gif|mp4|avi|mov|mkv/;
+        const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+        const mimetype = filetypes.test(file.mimetype);
+
+        if (extname && mimetype) {
+            return cb(null, true);
+        } else {
+            cb(new Error('Only image and video files are allowed'));
+        }
+    }
+});
 
 module.exports = upload;
