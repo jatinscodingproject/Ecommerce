@@ -17,11 +17,11 @@ const Product = sequelize.define('Product', {
         allowNull: true,
     },
     category_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(100),
         allowNull: true,
     },
     sub_category_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(100),
         allowNull: true,
     },
     brand: {
@@ -101,7 +101,7 @@ const Product = sequelize.define('Product', {
         allowNull: true,
     },
     number_of_batteries: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(100),
         allowNull: true,
     },
     batteries_included: {
@@ -109,7 +109,7 @@ const Product = sequelize.define('Product', {
         allowNull: true,
     },
     remote_range: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(255),
         allowNull: true,
     },
     remote_battery_info: {
@@ -121,7 +121,7 @@ const Product = sequelize.define('Product', {
         allowNull: true,
     },
     choking_hazard_warning: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING(255),
         allowNull: true,
     },
     manufactured_by: {

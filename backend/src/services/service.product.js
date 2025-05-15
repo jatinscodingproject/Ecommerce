@@ -81,7 +81,7 @@ const productServices = {
                 variant,
                 battery_type,
                 number_of_batteries: battery_required,
-                batteries_included: battery_include,
+                batteries_included: true,
                 remote_range,
                 remote_battery_info,
                 frequency,
