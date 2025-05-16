@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="en">
-
-<!-- Mirrored from demo.tailadmin.com/blank by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 05:58:45 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
     <meta charset="UTF-8" />
@@ -25,7 +22,6 @@
          darkMode = JSON.parse(localStorage.getItem('darkMode'));
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'dark bg-gray-900': darkMode === true}">
-    <!-- ===== Preloader Start ===== -->
     <div x-show="loaded"
         x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
         class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
@@ -34,11 +30,9 @@
     </div>
 
     <div class="flex h-screen overflow-hidden">
-        <!-- ===== Sidebar Start ===== -->
         <aside :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
             class="sidebar fixed top-0 left-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-auto border-r border-gray-200 bg-white px-5 transition-all duration-300 lg:static lg:translate-x-0 dark:border-gray-800 dark:bg-black"
             @click.outside="sidebarToggle = false">
-            <!-- SIDEBAR HEADER -->
             <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
                 class="sidebar-header flex items-center gap-2 pt-8 pb-7">
                 <a href="index.html">
@@ -51,12 +45,8 @@
                         src="src/images/logo/logo-icon.svg" alt="Logo" />
                 </a>
             </div>
-            <!-- SIDEBAR HEADER -->
-
             <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-                <!-- Sidebar Menu -->
                 <nav x-data="{selected: $persist('Dashboard')}">
-                    <!-- Menu Group -->
                     <div>
                         <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                             <span class="menu-group-title" :class="sidebarToggle ? 'lg:hidden' : ''">
@@ -151,7 +141,6 @@
                                     </svg>
                                 </a>
 
-                                <!-- Dropdown Menu Start -->
                                 <div class="translate transform overflow-hidden"
                                     :class="(selected === 'Task') ? 'block' :'hidden'">
                                     <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
@@ -172,7 +161,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Dropdown Menu End -->
                             </li>
 
                             <li>
@@ -192,37 +180,23 @@
                                     </span>
                                 </a>
                             </li>
-
-
-
-
                         </ul>
                     </div>
 
 
                 </nav>
-                <!-- Sidebar Menu -->
 
 
             </div>
         </aside>
-
-        <!-- ===== Sidebar End ===== -->
-
-        <!-- ===== Content Area Start ===== -->
         <div class="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
-            <!-- Small Device Overlay Start -->
             <div :class="sidebarToggle ? 'block lg:hidden' : 'hidden'" class="fixed z-9 h-screen w-full bg-gray-900/50">
             </div>
-            <!-- Small Device Overlay End -->
-
-            <!-- ===== Header Start ===== -->
             <header x-data="{menuToggle: false}"
                 class="sticky top-0 z-99999 flex w-full border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 lg:border-b">
                 <div class="flex grow flex-col items-center justify-between lg:flex-row lg:px-6">
                     <div
                         class="flex w-full items-center justify-between gap-2 border-b border-gray-200 px-3 py-3 dark:border-gray-800 sm:gap-4 lg:justify-normal lg:border-b-0 lg:px-0 lg:py-4">
-                        <!-- Hamburger Toggle BTN -->
                         <button
                             :class="sidebarToggle ? 'lg:bg-transparent dark:lg:bg-transparent bg-gray-100 dark:bg-gray-800' : ''"
                             class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg border-gray-200 text-gray-500 dark:border-gray-800 dark:text-gray-400 lg:h-11 lg:w-11 lg:border"
@@ -242,7 +216,6 @@
                                     fill="" />
                             </svg>
 
-                            <!-- cross icon -->
                             <svg :class="sidebarToggle ? 'block lg:hidden' : 'hidden'" class="fill-current" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -250,14 +223,12 @@
                                     fill="" />
                             </svg>
                         </button>
-                        <!-- Hamburger Toggle BTN -->
 
                         <a href="index.html" class="lg:hidden">
                             <img class="dark:hidden" src="src/images/logo/logo.svg" alt="Logo" />
                             <img class="hidden dark:block" src="src/images/logo/logo-dark.svg" alt="Logo" />
                         </a>
 
-                        <!-- Application nav menu button -->
                         <button
                             class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 lg:hidden"
                             :class="menuToggle ? 'bg-gray-100 dark:bg-gray-800' : ''"
@@ -269,7 +240,6 @@
                                     fill="" />
                             </svg>
                         </button>
-                        <!-- Application nav menu button -->
 
                         <div class="hidden lg:block">
                             <form>
@@ -298,7 +268,6 @@
                     <div :class="menuToggle ? 'flex' : 'hidden'"
                         class="w-full items-center justify-between gap-4 px-5 py-4 shadow-theme-md lg:flex lg:justify-end lg:px-0 lg:shadow-none">
                         <div class="flex items-center gap-2 2xsm:gap-3">
-                            <!-- Dark Mode Toggler -->
                             <button
                                 class="hover:text-dark-900 relative flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
                                 @click.prevent="darkMode = !darkMode">
@@ -315,13 +284,8 @@
                                         fill="currentColor" />
                                 </svg>
                             </button>
-                            <!-- Dark Mode Toggler -->
-
-
-                            <!-- Notification Menu Area -->
                         </div>
 
-                        <!-- User Area -->
                         <div class="relative" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
                             <a class="flex items-center text-gray-700 dark:text-gray-400" href="#"
                                 @click.prevent="dropdownOpen = ! dropdownOpen">
@@ -339,7 +303,6 @@
                                 </svg>
                             </a>
 
-                            <!-- Dropdown Start -->
                             <div x-show="dropdownOpen"
                                 class="absolute right-0 mt-[17px] flex w-[260px] flex-col rounded-2xl border border-gray-200 bg-white p-3 shadow-theme-lg dark:border-gray-800 dark:bg-gray-dark">
                                 <div>
@@ -394,18 +357,15 @@
                                     Sign out
                                 </button>
                             </div>
-                            <!-- Dropdown End -->
+
                         </div>
-                        <!-- User Area -->
+
                     </div>
                 </div>
             </header>
-            <!-- ===== Header End ===== -->
-
-            <!-- ===== Main Content Start ===== -->
             <main>
                 <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
-                    <!-- Breadcrumb Start -->
+
                     <div x-data="{ pageName: `Product List`}">
                         <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
                             <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
@@ -427,23 +387,18 @@
                             </nav>
                         </div>
                     </div>
-                    <!-- Breadcrumb End -->
 
                     <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
-
                         <div class="border-t border-gray-100 p-5 dark:border-gray-800 sm:p-6">
-                            <!-- Table Five -->
                             <div class=" bg-white pt-4 dark:border-gray-800 dark:bg-white/[0.03]">
                                 <div
                                     class="mb-4 flex flex-col gap-2 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-                                    
-
                                     <div class="flex flex-col sm:flex-row sm:items-center gap-3">
                                         <div class="relative w-full xl:w-[300px]">
                                             <span class="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2">
-                                                <!-- Search icon -->
-                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+
+                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20"
+                                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                         d="M3.04199 9.37381C3.04199 5.87712 5.87735 3.04218 9.37533 3.04218C12.8733 3.04218 15.7087 5.87712 15.7087 9.37381C15.7087 12.8705 12.8733 15.7055 9.37533 15.7055C5.87735 15.7055 3.04199 12.8705 3.04199 9.37381ZM9.37533 1.54218C5.04926 1.54218 1.54199 5.04835 1.54199 9.37381C1.54199 13.6993 5.04926 17.2055 9.37533 17.2055C11.2676 17.2055 13.0032 16.5346 14.3572 15.4178L17.1773 18.2381C17.4702 18.531 17.945 18.5311 18.2379 18.2382C18.5308 17.9453 18.5309 17.4704 18.238 17.1775L15.4182 14.3575C16.5367 13.0035 17.2087 11.2671 17.2087 9.37381C17.2087 5.04835 13.7014 1.54218 9.37533 1.54218Z"
                                                         fill="" />
@@ -452,12 +407,12 @@
                                             <input type="text" placeholder="Search Product Name"
                                                 class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-[42px] w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-4 pl-[42px] text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
                                         </div>
-                                    
+
                                         <div class="relative w-full xl:w-[300px]">
                                             <span class="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2">
-                                                <!-- Search icon -->
-                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+
+                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20"
+                                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                         d="M3.04199 9.37381C3.04199 5.87712 5.87735 3.04218 9.37533 3.04218C12.8733 3.04218 15.7087 5.87712 15.7087 9.37381C15.7087 12.8705 12.8733 15.7055 9.37533 15.7055C5.87735 15.7055 3.04199 12.8705 3.04199 9.37381ZM9.37533 1.54218C5.04926 1.54218 1.54199 5.04835 1.54199 9.37381C1.54199 13.6993 5.04926 17.2055 9.37533 17.2055C11.2676 17.2055 13.0032 16.5346 14.3572 15.4178L17.1773 18.2381C17.4702 18.531 17.945 18.5311 18.2379 18.2382C18.5308 17.9453 18.5309 17.4704 18.238 17.1775L15.4182 14.3575C16.5367 13.0035 17.2087 11.2671 17.2087 9.37381C17.2087 5.04835 13.7014 1.54218 9.37533 1.54218Z"
                                                         fill="" />
@@ -469,9 +424,9 @@
 
                                         <div class="relative w-full xl:w-[300px]">
                                             <span class="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2">
-                                                <!-- Search icon -->
-                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+
+                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20"
+                                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                         d="M3.04199 9.37381C3.04199 5.87712 5.87735 3.04218 9.37533 3.04218C12.8733 3.04218 15.7087 5.87712 15.7087 9.37381C15.7087 12.8705 12.8733 15.7055 9.37533 15.7055C5.87735 15.7055 3.04199 12.8705 3.04199 9.37381ZM9.37533 1.54218C5.04926 1.54218 1.54199 5.04835 1.54199 9.37381C1.54199 13.6993 5.04926 17.2055 9.37533 17.2055C11.2676 17.2055 13.0032 16.5346 14.3572 15.4178L17.1773 18.2381C17.4702 18.531 17.945 18.5311 18.2379 18.2382C18.5308 17.9453 18.5309 17.4704 18.238 17.1775L15.4182 14.3575C16.5367 13.0035 17.2087 11.2671 17.2087 9.37381C17.2087 5.04835 13.7014 1.54218 9.37533 1.54218Z"
                                                         fill="" />
@@ -483,9 +438,9 @@
 
                                         <div class="relative w-full xl:w-[300px]">
                                             <span class="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2">
-                                                <!-- Search icon -->
-                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+
+                                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20"
+                                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                         d="M3.04199 9.37381C3.04199 5.87712 5.87735 3.04218 9.37533 3.04218C12.8733 3.04218 15.7087 5.87712 15.7087 9.37381C15.7087 12.8705 12.8733 15.7055 9.37533 15.7055C5.87735 15.7055 3.04199 12.8705 3.04199 9.37381ZM9.37533 1.54218C5.04926 1.54218 1.54199 5.04835 1.54199 9.37381C1.54199 13.6993 5.04926 17.2055 9.37533 17.2055C11.2676 17.2055 13.0032 16.5346 14.3572 15.4178L17.1773 18.2381C17.4702 18.531 17.945 18.5311 18.2379 18.2382C18.5308 17.9453 18.5309 17.4704 18.238 17.1775L15.4182 14.3575C16.5367 13.0035 17.2087 11.2671 17.2087 9.37381C17.2087 5.04835 13.7014 1.54218 9.37533 1.54218Z"
                                                         fill="" />
@@ -495,9 +450,9 @@
                                                 class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-[42px] w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-4 pl-[42px] text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
                                         </div>
 
-                                        
+
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="custom-scrollbar max-w-full overflow-x-auto px-5 sm:px-6">
@@ -596,595 +551,10 @@
                                                 </div>
                                             </th>
 
-                                            <th class="py-3 font-normal whitespace-nowrap">
-                                                <div class="flex items-center">
-                                                    <p class="text-theme-sm text-gray-500 dark:text-gray-400">
-                                                        Action
-                                                    </p>
-                                                </div>
-                                            </th>
                                         </thead>
-                                        <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-                                            <tr>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="col-span-3 flex items-center">
-                                                        <div class="flex items-center gap-3">
-                                                            <div>
-                                                                <span
-                                                                    class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400">
-                                                                    Cars
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Yes
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            <span
-                                                                class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                                In stock
-                                                            </span>
+                                        <tbody id="product-table-body"
+                                            class="divide-y divide-gray-100 dark:divide-gray-800">
 
-
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <span
-                                                            class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                            Active
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Toys
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Cars
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            4/5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            230
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5%
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/04/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/05/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                               
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center justify-center">
-                                                        <div x-data="{openDropDown: false}" class="relative">
-                                                            <button @click="openDropDown = !openDropDown"
-                                                                class="text-gray-500 dark:text-gray-400">
-                                                                <svg class="fill-current" width="24" height="24"
-                                                                    viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M5.99902 10.245C6.96552 10.245 7.74902 11.0285 7.74902 11.995V12.005C7.74902 12.9715 6.96552 13.755 5.99902 13.755C5.03253 13.755 4.24902 12.9715 4.24902 12.005V11.995C4.24902 11.0285 5.03253 10.245 5.99902 10.245ZM17.999 10.245C18.9655 10.245 19.749 11.0285 19.749 11.995V12.005C19.749 12.9715 18.9655 13.755 17.999 13.755C17.0325 13.755 16.249 12.9715 16.249 12.005V11.995C16.249 11.0285 17.0325 10.245 17.999 10.245ZM13.749 11.995C13.749 11.0285 12.9655 10.245 11.999 10.245C11.0325 10.245 10.249 11.0285 10.249 11.995V12.005C10.249 12.9715 11.0325 13.755 11.999 13.755C12.9655 13.755 13.749 12.9715 13.749 12.005V11.995Z"
-                                                                        fill="" />
-                                                                </svg>
-                                                            </button>
-                                                            <div x-show="openDropDown"
-                                                                @click.outside="openDropDown = false"
-                                                                class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800">
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    View Details
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Edit
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Delete
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Status
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Stock Status
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="col-span-3 flex items-center">
-                                                        <div class="flex items-center gap-3">
-                                                            <div>
-                                                                <span
-                                                                    class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400">
-                                                                    Cars
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Yes
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            <span
-                                                                class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                                In stock
-                                                            </span>
-
-
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <span
-                                                            class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                            Active
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Toys
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Cars
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            4/5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            230
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5%
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/04/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/05/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                               
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center justify-center">
-                                                        <div x-data="{openDropDown: false}" class="relative">
-                                                            <button @click="openDropDown = !openDropDown"
-                                                                class="text-gray-500 dark:text-gray-400">
-                                                                <svg class="fill-current" width="24" height="24"
-                                                                    viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M5.99902 10.245C6.96552 10.245 7.74902 11.0285 7.74902 11.995V12.005C7.74902 12.9715 6.96552 13.755 5.99902 13.755C5.03253 13.755 4.24902 12.9715 4.24902 12.005V11.995C4.24902 11.0285 5.03253 10.245 5.99902 10.245ZM17.999 10.245C18.9655 10.245 19.749 11.0285 19.749 11.995V12.005C19.749 12.9715 18.9655 13.755 17.999 13.755C17.0325 13.755 16.249 12.9715 16.249 12.005V11.995C16.249 11.0285 17.0325 10.245 17.999 10.245ZM13.749 11.995C13.749 11.0285 12.9655 10.245 11.999 10.245C11.0325 10.245 10.249 11.0285 10.249 11.995V12.005C10.249 12.9715 11.0325 13.755 11.999 13.755C12.9655 13.755 13.749 12.9715 13.749 12.005V11.995Z"
-                                                                        fill="" />
-                                                                </svg>
-                                                            </button>
-                                                            <div x-show="openDropDown"
-                                                                @click.outside="openDropDown = false"
-                                                                class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800">
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    View Details
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Edit
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Delete
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Status
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Stock Status
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="col-span-3 flex items-center">
-                                                        <div class="flex items-center gap-3">
-                                                            <div>
-                                                                <span
-                                                                    class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400">
-                                                                    Cars
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Yes
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            <span
-                                                                class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                                In stock
-                                                            </span>
-
-
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <span
-                                                            class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                            Active
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Toys
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Cars
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            4/5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            230
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5%
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/04/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/05/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                               
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center justify-center">
-                                                        <div x-data="{openDropDown: false}" class="relative">
-                                                            <button @click="openDropDown = !openDropDown"
-                                                                class="text-gray-500 dark:text-gray-400">
-                                                                <svg class="fill-current" width="24" height="24"
-                                                                    viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M5.99902 10.245C6.96552 10.245 7.74902 11.0285 7.74902 11.995V12.005C7.74902 12.9715 6.96552 13.755 5.99902 13.755C5.03253 13.755 4.24902 12.9715 4.24902 12.005V11.995C4.24902 11.0285 5.03253 10.245 5.99902 10.245ZM17.999 10.245C18.9655 10.245 19.749 11.0285 19.749 11.995V12.005C19.749 12.9715 18.9655 13.755 17.999 13.755C17.0325 13.755 16.249 12.9715 16.249 12.005V11.995C16.249 11.0285 17.0325 10.245 17.999 10.245ZM13.749 11.995C13.749 11.0285 12.9655 10.245 11.999 10.245C11.0325 10.245 10.249 11.0285 10.249 11.995V12.005C10.249 12.9715 11.0325 13.755 11.999 13.755C12.9655 13.755 13.749 12.9715 13.749 12.005V11.995Z"
-                                                                        fill="" />
-                                                                </svg>
-                                                            </button>
-                                                            <div x-show="openDropDown"
-                                                                @click.outside="openDropDown = false"
-                                                                class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800">
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    View Details
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Edit
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Delete
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Status
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Stock Status
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="col-span-3 flex items-center">
-                                                        <div class="flex items-center gap-3">
-                                                            <div>
-                                                                <span
-                                                                    class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400">
-                                                                    Cars
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Yes
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            <span
-                                                                class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                                In stock
-                                                            </span>
-
-
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <span
-                                                            class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                                                            Active
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Toys
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            Cars
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            4/5
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            230
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            5%
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/04/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                            12/05/2025
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                               
-                                                <td class="py-3 whitespace-nowrap">
-                                                    <div class="flex items-center justify-center">
-                                                        <div x-data="{openDropDown: false}" class="relative">
-                                                            <button @click="openDropDown = !openDropDown"
-                                                                class="text-gray-500 dark:text-gray-400">
-                                                                <svg class="fill-current" width="24" height="24"
-                                                                    viewBox="0 0 24 24" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M5.99902 10.245C6.96552 10.245 7.74902 11.0285 7.74902 11.995V12.005C7.74902 12.9715 6.96552 13.755 5.99902 13.755C5.03253 13.755 4.24902 12.9715 4.24902 12.005V11.995C4.24902 11.0285 5.03253 10.245 5.99902 10.245ZM17.999 10.245C18.9655 10.245 19.749 11.0285 19.749 11.995V12.005C19.749 12.9715 18.9655 13.755 17.999 13.755C17.0325 13.755 16.249 12.9715 16.249 12.005V11.995C16.249 11.0285 17.0325 10.245 17.999 10.245ZM13.749 11.995C13.749 11.0285 12.9655 10.245 11.999 10.245C11.0325 10.245 10.249 11.0285 10.249 11.995V12.005C10.249 12.9715 11.0325 13.755 11.999 13.755C12.9655 13.755 13.749 12.9715 13.749 12.005V11.995Z"
-                                                                        fill="" />
-                                                                </svg>
-                                                            </button>
-                                                            <div x-show="openDropDown"
-                                                                @click.outside="openDropDown = false"
-                                                                class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800">
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    View Details
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Edit
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Delete
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Status
-                                                                </button>
-                                                                <button
-                                                                    class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                                                    Stock Status
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -1273,16 +643,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Table Five -->
                         </div>
                     </div>
                 </div>
             </main>
-            <!-- ===== Main Content End ===== -->
         </div>
-        <!-- ===== Content Area End ===== -->
     </div>
-    <!-- ===== Page Wrapper End ===== -->
     <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script defer src="bundle.js"></script>
     <script defer
@@ -1290,8 +656,58 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"91e8d025297b1305","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"67f7a278e3374824ae6dd92295d38f77","b":1}'
         crossorigin="anonymous"></script>
-</body>
+    <script>
+        fetch('http://65.1.95.162:3000/api/fetchProduct')
+            .then(res => res.json())
+            .then(response => {
+                if (response.result === 'pass') {
+                    const tbody = document.getElementById('product-table-body');
+                    response.data.forEach(product => {
+                        const row = document.createElement('tr');
 
-<!-- Mirrored from demo.tailadmin.com/blank by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 05:58:47 GMT -->
+                        const statusBadge = product.status
+                            ? `<span class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">Active</span>`
+                            : `<span class="inline-flex items-center justify-center gap-1 rounded-full bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-500 dark:bg-gray-600/15 dark:text-gray-400">Inactive</span>`;
+
+                        const stockBadge = product.stock_status
+                            ? `<span class="inline-flex items-center justify-center gap-1 rounded-full bg-success-50 px-2.5 py-0.5 text-sm font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">In stock</span>`
+                            : `<span class="inline-flex items-center justify-center gap-1 rounded-full bg-red-50 px-2.5 py-0.5 text-sm font-medium text-red-600 dark:bg-red-500/15 dark:text-red-500">Out of stock</span>`;
+
+                        row.innerHTML = `
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${product.title}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">N/A</td>
+                            <td class="py-3 whitespace-nowrap">
+                                <div class="flex items-center">
+                                ${stockBadge}
+                                </div>
+                            </td>
+                            <td class="py-3 whitespace-nowrap">
+                                <div class="flex items-center">
+                                ${statusBadge}
+                                </div>
+                            </td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${product.category_id || '-'}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${product.sub_category_id || '-'}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${product.min_order_quantity}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${product.quantity}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">N/A</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${product.price}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${product.discount}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${new Date(product.createdAt).toLocaleString()}</td>
+                            <td class="py-3 whitespace-nowrap text-sm text-gray-700">${new Date(product.updatedAt).toLocaleString()}</td>
+                            
+                            `;
+                        tbody.appendChild(row);
+                    });
+                } else {
+                    console.error('API response error:', response.msg);
+                }
+            })
+            .catch(err => {
+                console.error('Fetch failed:', err);
+            });
+    </script>
+
+</body>
 
 </html>
