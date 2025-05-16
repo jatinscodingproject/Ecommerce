@@ -28,28 +28,24 @@ const Product = sequelize.define('Product', {
         type: DataTypes.STRING(255),
         allowNull: true,
     },
-    manufacturer: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
     description: {
         type: DataTypes.TEXT,
         allowNull: true,
     },
-    usage_instructions: {
+    more_information: {
         type: DataTypes.TEXT,
         allowNull: true,
     },
     price: {
-        type: DataTypes.DECIMAL(10, 2),
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     discount: {
-        type: DataTypes.DECIMAL(5, 2),
+        type: DataTypes.INTEGER,
         allowNull: true,
     },
     gst_percentage: {
-        type: DataTypes.DECIMAL(5, 2),
+        type: DataTypes.INTEGER,
         allowNull: true,
     },
     quantity: {
@@ -60,75 +56,11 @@ const Product = sequelize.define('Product', {
         type: DataTypes.INTEGER,
         defaultValue: 1,
     },
-    weight: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: true,
-    },
-    dimension: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    material_used: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    age_recommendations: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    safety_instructions: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-    },
     tags: {
         type: DataTypes.STRING(255),
         allowNull: true,
     },
     color: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    size: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    variant: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    battery_type: {
-        type: DataTypes.STRING(100),
-        allowNull: true,
-    },
-    number_of_batteries: {
-        type: DataTypes.STRING(100),
-        allowNull: true,
-    },
-    batteries_included: {
-        type: DataTypes.BOOLEAN,
-        allowNull: true,
-    },
-    remote_range: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    remote_battery_info: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    frequency: {
-        type: DataTypes.STRING(50),
-        allowNull: true,
-    },
-    choking_hazard_warning: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    manufactured_by: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-    },
-    manufactured_in: {
         type: DataTypes.STRING(255),
         allowNull: true,
     },

@@ -42,9 +42,7 @@ jspm_packages/
 .yarn-integrity
 
 # dotenv environment files
-.env
-.env.test
-.env.*.local
+
 
 # Parcel-bundler cache
 .cache/
