@@ -1211,7 +1211,6 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <!-- Add Product Form Code End -->
 
                                 </div>
                             </div>
@@ -1235,20 +1234,10 @@
             const form = e.target;
             const formData = new FormData(form);
 
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
-
-            const jsonData = JSON.stringify(formObject);
-
             try {
                 const response = await fetch('http://localhost:3000/api/add-product', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: jsonData
+                    body: formData
                 });
 
                 const result = await response.json();
@@ -1261,10 +1250,11 @@
                 }
 
             } catch (err) {
+                alert(err)
                 console.error('Error submitting form:', err);
-                alert('An error occurred while submitting the form.');
             }
         });
+
 
     </script>
 </body>
